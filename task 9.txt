@@ -1,0 +1,40 @@
+task 9
+
+import java.util.Scanner;
+
+interface CheckPalindrome{
+    boolean check(int n);
+}
+
+public class PalindromeMethodReference {
+
+    public static boolean isPalindrome(int n){
+        int temp=n,rev=0;
+
+        while(temp>0){
+            rev=rev*10+temp%10;
+            temp/=10;
+        }
+
+        return rev==n;
+    }
+
+    public static void main(String[] args){
+
+        Scanner sc=new Scanner(System.in);
+
+        System.out.print("Enter number: ");
+        int num=sc.nextInt();
+
+        CheckPalindrome p=PalindromeMethodReference::isPalindrome;
+
+        if(p.check(num))
+            System.out.println("Palindrome");
+        else
+            System.out.println("Not Palindrome");
+    }
+}
+Input
+Enter number: 121
+Output
+Palindrome
