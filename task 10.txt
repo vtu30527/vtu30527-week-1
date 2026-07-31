@@ -1,0 +1,34 @@
+task 10
+
+import java.util.Scanner;
+
+interface LastDigitSum{
+    int add(int a,int b);
+}
+
+public class LastDigitMethodReference {
+
+    public static int sumLastDigit(int a,int b){
+        return (a%10)+(b%10);
+    }
+
+    public static void main(String[] args){
+
+        Scanner sc=new Scanner(System.in);
+
+        System.out.print("Enter first number: ");
+        int a=sc.nextInt();
+
+        System.out.print("Enter second number: ");
+        int b=sc.nextInt();
+
+        LastDigitSum obj=LastDigitMethodReference::sumLastDigit;
+
+        System.out.println("Sum = "+obj.add(a,b));
+    }
+}
+Input
+Enter first number: 456
+Enter second number: 789
+Output
+Sum = 15
